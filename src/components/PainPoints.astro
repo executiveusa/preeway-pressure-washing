@@ -1,0 +1,42 @@
+---
+import { getLangFromUrl, getTranslations } from '../i18n/index';
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang);
+---
+
+<section id="pain-points" class="py-24 bg-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center mb-16">
+      <p class="font-mono text-gold text-xs tracking-widest uppercase mb-4">The Problem</p>
+      <h2 class="font-display italic text-3xl sm:text-4xl lg:text-5xl text-text mb-6">
+        {t.pain.heading}
+      </h2>
+      <p class="font-body text-muted text-lg max-w-2xl mx-auto">
+        {t.pain.sub}
+      </p>
+    </div>
+
+    <!-- Pain points grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {t.pain.points.map((point, i) => (
+        <article class="group p-6 bg-surface border border-surface-2 rounded-lg hover:border-gold/30 transition-all duration-300 hover:bg-surface-2">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center mt-0.5">
+              <span class="font-mono text-gold/40 text-xs">0{i + 1}</span>
+            </div>
+            <div>
+              <h3 class="font-display italic text-xl text-text mb-3 group-hover:text-gold transition-colors">
+                {point.title}
+              </h3>
+              <p class="font-body text-muted text-sm leading-relaxed">
+                {point.desc}
+              </p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

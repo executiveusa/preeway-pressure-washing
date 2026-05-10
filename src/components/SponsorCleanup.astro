@@ -1,0 +1,56 @@
+---
+import { getLangFromUrl, getTranslations } from '../i18n/index';
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang);
+---
+
+<section id="sponsor" class="py-24 bg-surface">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <p class="font-mono text-gold text-xs tracking-widest uppercase mb-4">Community Impact</p>
+      <h2 class="font-display italic text-3xl sm:text-4xl lg:text-5xl text-text mb-6">
+        {t.sponsor.heading}
+      </h2>
+      <p class="font-body text-muted text-lg max-w-2xl mx-auto">
+        {t.sponsor.sub}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      {t.sponsor.tiers.map((tier, i) => (
+        <article class={`p-6 bg-dark border rounded-lg flex flex-col ${i === 0 ? 'border-gold/40 lg:col-span-1' : 'border-surface-2'} hover:border-gold/30 transition-all duration-300`}>
+          <div class="mb-5">
+            <p class="font-mono text-gold text-xs tracking-widest uppercase mb-2">Tier {String(i + 1).padStart(2, '0')}</p>
+            <h3 class="font-display italic text-xl text-text mb-2">{tier.name}</h3>
+            <p class="font-mono text-gold text-lg font-bold">{tier.price}</p>
+          </div>
+          <p class="font-body text-muted text-sm leading-relaxed mb-5 flex-1">{tier.desc}</p>
+          <ul class="space-y-2 border-t border-surface-2 pt-4">
+            {tier.includes.map((item) => (
+              <li class="flex items-start gap-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5a7a52" stroke-width="2.5" stroke-linecap="round" class="flex-shrink-0 mt-0.5" aria-hidden="true">
+                  <polyline points="20,6 9,17 4,12"/>
+                </svg>
+                <span class="font-body text-muted text-xs">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+
+    <div class="text-center">
+      <a
+        href="#quote"
+        class="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-dark font-body font-bold px-8 py-4 rounded transition-all duration-200 hover:shadow-lg hover:shadow-gold/20 hover:-translate-y-0.5"
+      >
+        {t.sponsor.cta}
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <p class="font-body text-muted text-sm mt-4">{t.sponsor.contact_note}</p>
+    </div>
+  </div>
+</section>

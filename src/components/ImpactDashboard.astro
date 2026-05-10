@@ -1,0 +1,87 @@
+---
+import { getLangFromUrl, getTranslations } from '../i18n/index';
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang);
+---
+
+<section id="impact" class="py-24 bg-surface">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <p class="font-mono text-gold text-xs tracking-widest uppercase mb-4">Measured Impact</p>
+      <h2 class="font-display italic text-3xl sm:text-4xl lg:text-5xl text-text mb-6">
+        {t.impact.heading}
+      </h2>
+      <p class="font-body text-muted text-lg max-w-2xl mx-auto">
+        {t.impact.sub}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8">
+      {t.impact.stats.map((stat, i) => (
+        <div
+          class="impact-stat p-6 lg:p-8 bg-dark border border-surface-2 rounded-xl text-center group hover:border-gold/30 transition-all duration-300"
+          data-value={String(stat.value)}
+          data-index={String(i)}
+        >
+          <div class="stat-number font-display italic text-4xl lg:text-5xl text-gold mb-3 tabular-nums" aria-live="polite">
+            {stat.value}
+          </div>
+          <div class="font-mono text-muted text-xs tracking-widest uppercase leading-relaxed">
+            {stat.label}
+          </div>
+          <div class="mt-3 h-0.5 w-8 bg-gold/20 mx-auto group-hover:bg-gold/50 transition-colors duration-500"></div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Documentation note -->
+    <div class="mt-12 text-center">
+      <p class="font-body text-muted text-sm">
+        All impact figures verified through before/after documentation. Numbers updated quarterly.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Animate numeric counters when they enter the viewport
+  const numericStats = document.querySelectorAll<HTMLElement>('.impact-stat');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target as HTMLElement;
+        const numEl = el.querySelector<HTMLElement>('.stat-number');
+        const raw = el.dataset.value ?? '0';
+
+        // Only animate pure numbers
+        const parsed = parseInt(raw, 10);
+        if (isNaN(parsed) || raw.includes('%') || raw.includes('h')) {
+          observer.unobserve(el);
+          return;
+        }
+
+        let start = 0;
+        const duration = 1200;
+        const startTime = performance.now();
+
+        function tick(now: number) {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = Math.floor(eased * parsed);
+          if (numEl) numEl.textContent = String(current);
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+
+        requestAnimationFrame(tick);
+        observer.unobserve(el);
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  numericStats.forEach((el) => observer.observe(el));
+</script>

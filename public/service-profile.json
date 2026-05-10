@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0",
+  "generated": "2025-01-01",
+  "company": {
+    "name": "Preeway Pressure Washing SPC",
+    "legal_name": "Preeway Pressure Washing SPC",
+    "legal_structure": "Washington Social Purpose Corporation",
+    "founded": "2024",
+    "headquarters": {
+      "city": "Tacoma",
+      "state": "WA",
+      "country": "US"
+    },
+    "url": "https://preeway.com",
+    "contact": {
+      "phone": "+12535550100",
+      "email": "hello@preeway.com"
+    },
+    "social_purpose": {
+      "is_spc": true,
+      "is_nonprofit": false,
+      "tax_deductible_donations": false,
+      "mission": "Remove blight, protect murals, restore storefronts, support local artists, and create measurable community cleanup impact along the I-5 corridor."
+    }
+  },
+  "service_area": {
+    "region": "I-5 Corridor",
+    "counties": ["King County", "Pierce County"],
+    "state": "Washington",
+    "cities": [
+      "Seattle", "Tacoma", "Bellevue", "Mercer Island", "Kirkland", "Redmond",
+      "Ballard", "Capitol Hill", "Fremont", "Queen Anne", "West Seattle",
+      "Georgetown", "SODO", "Pioneer Square", "North Tacoma", "Proctor",
+      "Stadium District", "Gig Harbor", "University Place"
+    ]
+  },
+  "services": [
+    {
+      "id": "graffiti-removal",
+      "name": "Graffiti Removal",
+      "description": "Fast, complete removal from concrete, brick, metal, and painted surfaces.",
+      "surfaces": ["concrete", "brick", "siding", "metal", "wood", "stone"],
+      "urgency_options": ["emergency_24h", "urgent_3day", "standard_1week", "planning"],
+      "quote_required": true
+    },
+    {
+      "id": "mural-recovery",
+      "name": "Mural Recovery",
+      "description": "Artist-coordinated recovery process for vandalized murals. Document, preserve, coordinate, restore.",
+      "process": ["assess", "document", "artist_consult", "treat", "restore"],
+      "quote_required": true
+    },
+    {
+      "id": "commercial-pressure-washing",
+      "name": "Commercial Pressure Washing",
+      "description": "Building exteriors, loading docks, parking structures — scheduled or on-call.",
+      "quote_required": true
+    },
+    {
+      "id": "residential-exterior-cleaning",
+      "name": "Residential Exterior Cleaning",
+      "description": "House washing, roof soft-washing, fence cleaning.",
+      "quote_required": true
+    },
+    {
+      "id": "driveways-sidewalks-patios",
+      "name": "Driveways, Sidewalks & Patios",
+      "description": "High-pressure cleaning of concrete, pavers, and natural stone.",
+      "quote_required": true
+    },
+    {
+      "id": "storefront-dumpster-cleanup",
+      "name": "Storefront & Dumpster Pad Cleanup",
+      "description": "Entrances and dumpster areas cleaned and deodorized.",
+      "quote_required": true
+    },
+    {
+      "id": "hoa-property-maintenance",
+      "name": "HOA & Property Manager Maintenance",
+      "description": "Contracted recurring service with before/after documentation.",
+      "quote_required": true,
+      "contract_available": true
+    },
+    {
+      "id": "anti-graffiti-coating",
+      "name": "Anti-Graffiti Coating & Prevention",
+      "description": "Sacrificial and permanent coatings to prevent future graffiti damage.",
+      "quote_required": true
+    }
+  ],
+  "sponsorship_tiers": [
+    {
+      "id": "sponsor-block",
+      "name": "Sponsor a Block",
+      "price_range": { "min": 500, "max": 1500, "currency": "USD" },
+      "includes": ["up_to_8_storefronts", "before_after_documentation", "optional_recognition", "impact_report"]
+    },
+    {
+      "id": "sponsor-storefront",
+      "name": "Sponsor a Storefront",
+      "price_range": { "min": 150, "max": 400, "currency": "USD" },
+      "includes": ["exterior_wash", "graffiti_removal", "photo_documentation", "business_notification"]
+    },
+    {
+      "id": "sponsor-mural-recovery",
+      "name": "Sponsor a Mural Recovery",
+      "price_range": { "min": 300, "max": 800, "currency": "USD" },
+      "includes": ["artist_consultation", "chemical_treatment", "documentation", "artist_credit"]
+    },
+    {
+      "id": "sponsor-supplies",
+      "name": "Sponsor Supplies & Equipment",
+      "price_range": { "min": 250, "max": 2000, "currency": "USD" },
+      "includes": ["named_recognition", "quarterly_updates", "equipment_transparency"]
+    },
+    {
+      "id": "sponsor-workforce",
+      "name": "Sponsor Youth & Local Workforce Training",
+      "price_range": { "min": 500, "max": 5000, "currency": "USD" },
+      "includes": ["trainee_hours_funded", "program_documentation", "scholarship_option"]
+    }
+  ],
+  "impact_metrics": {
+    "storefronts_restored": 47,
+    "murals_protected": 12,
+    "cleanup_blocks_sponsored": 23,
+    "artist_partners": 8,
+    "avg_response_time_hours": 4,
+    "documentation_rate": "100%"
+  },
+  "ai_interaction": {
+    "agent_name": "Preeway Scout",
+    "capabilities": ["visitor_classification", "request_routing", "next_step_guidance"],
+    "human_review_required_for": [
+      "final_pricing",
+      "legal_statements",
+      "grant_submissions",
+      "refunds",
+      "public_commitments"
+    ],
+    "intake_endpoint": "POST /api/quote",
+    "agent_endpoint": "POST /api/agent"
+  }
+}
