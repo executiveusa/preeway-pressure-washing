@@ -113,9 +113,9 @@ const faqPage = {
 };
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(localBusiness)} />
-<script type="application/ld+json" set:html={JSON.stringify(organization)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(localBusiness)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(organization)} />
 {services.map((svc) => (
-  <script type="application/ld+json" set:html={JSON.stringify(svc)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(svc)} />
 ))}
-<script type="application/ld+json" set:html={JSON.stringify(faqPage)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(faqPage)} />
