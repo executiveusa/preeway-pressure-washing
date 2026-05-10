@@ -1,0 +1,121 @@
+---
+// JSON-LD structured data for SEO
+
+const localBusiness = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://preeway.com/#business",
+  "name": "Preeway Pressure Washing SPC",
+  "legalName": "Preeway Pressure Washing SPC",
+  "description": "Professional graffiti removal and pressure washing for Tacoma, Seattle, King County, and Pierce County — with a social-purpose mission to restore storefronts, protect murals, and keep communities visibly cared for.",
+  "url": "https://preeway.com",
+  "telephone": "+12535550100",
+  "email": "hello@preeway.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Tacoma",
+    "addressRegion": "WA",
+    "postalCode": "98401",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "47.2529",
+    "longitude": "-122.4443"
+  },
+  "areaServed": [
+    "Seattle", "Tacoma", "Bellevue", "Mercer Island", "Kirkland", "Redmond",
+    "Ballard", "Capitol Hill", "Fremont", "Queen Anne", "West Seattle",
+    "Georgetown", "SODO", "Pioneer Square", "North Tacoma", "Proctor",
+    "Stadium District", "Gig Harbor", "University Place"
+  ],
+  "openingHours": "Mo-Fr 07:00-18:00",
+  "priceRange": "$$",
+  "currenciesAccepted": "USD",
+  "paymentAccepted": "Cash, Credit Card, Invoice"
+};
+
+const organization = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://preeway.com/#org",
+  "name": "Preeway Pressure Washing SPC",
+  "url": "https://preeway.com",
+  "description": "Washington Social Purpose Corporation providing exterior cleaning and community restoration services along the I-5 corridor.",
+  "foundingDate": "2024",
+  "foundingLocation": "Tacoma, WA",
+  "knowsAbout": [
+    "Graffiti Removal",
+    "Pressure Washing",
+    "Mural Recovery",
+    "Exterior Cleaning",
+    "Community Restoration"
+  ]
+};
+
+const services = [
+  "Graffiti Removal", "Mural Recovery", "Commercial Pressure Washing",
+  "Residential Exterior Cleaning", "Driveway and Sidewalk Cleaning",
+  "Storefront and Dumpster Pad Cleanup", "HOA Maintenance", "Anti-Graffiti Coating"
+].map((name) => ({
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": name,
+  "provider": { "@id": "https://preeway.com/#business" },
+  "areaServed": { "@type": "State", "name": "Washington" }
+}));
+
+const faqPage = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How fast can graffiti be removed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer emergency response within 24 hours for urgent commercial situations. Standard residential removal is typically scheduled within 3–5 business days."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you serve Tacoma and Seattle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — we serve the full I-5 corridor including Tacoma, Seattle, and all communities in between, including King County and Pierce County."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you help with murals that have been tagged?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Mural recovery is one of our core services. We assess each case individually with the original artist when possible and always document fully."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Preeway a nonprofit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Preeway is a Washington Social Purpose Corporation (SPC) — a for-profit business with a legally embedded social mission."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are donations tax-deductible?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not automatically. SPC status alone does not confer tax-exempt status. We are exploring fiscal sponsorship arrangements for certain campaigns."
+      }
+    }
+  ]
+};
+---
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(localBusiness)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(organization)} />
+{services.map((svc) => (
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(svc)} />
+))}
+<script is:inline type="application/ld+json" set:html={JSON.stringify(faqPage)} />

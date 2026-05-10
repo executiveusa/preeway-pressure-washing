@@ -1,0 +1,25 @@
+---
+import { getLangFromUrl } from '../i18n/index';
+
+const lang = getLangFromUrl(Astro.url);
+const enUrl = Astro.url.pathname.replace(/^\/es(\/|$)/, '/');
+const esUrl = Astro.url.pathname.startsWith('/es') ? Astro.url.pathname : `/es${Astro.url.pathname}`;
+---
+
+<div class="language-toggle flex items-center gap-1 font-mono text-xs tracking-widest">
+  <a
+    href={enUrl}
+    class={`px-2 py-1 transition-colors ${lang === 'en' ? 'text-gold font-bold border-b border-gold' : 'text-muted hover:text-text'}`}
+    aria-label="Switch to English"
+  >
+    EN
+  </a>
+  <span class="text-muted">|</span>
+  <a
+    href={esUrl}
+    class={`px-2 py-1 transition-colors ${lang === 'es' ? 'text-gold font-bold border-b border-gold' : 'text-muted hover:text-text'}`}
+    aria-label="Cambiar al español"
+  >
+    ES
+  </a>
+</div>

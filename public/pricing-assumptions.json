@@ -1,0 +1,158 @@
+{
+  "schema_version": "1.0",
+  "disclaimer": "All pricing shown is an estimated range only. Actual quotes depend on surface type, size, accessibility, graffiti age/complexity, and geographic location. No pricing information on this page or in this file constitutes a binding quote or contract. Contact Preeway for a customized quote.",
+  "last_updated": "2025-01-01",
+  "currency": "USD",
+  "services": [
+    {
+      "id": "graffiti-removal",
+      "name": "Graffiti Removal",
+      "range_low": 150,
+      "range_high": 800,
+      "unit": "per job",
+      "factors": [
+        "Surface type (porous vs non-porous)",
+        "Size of tagged area",
+        "Paint type and age",
+        "Accessibility and location",
+        "Number of surfaces affected"
+      ],
+      "notes": "Emergency response (24h) may carry a surcharge. Discounts available for recurring service contracts."
+    },
+    {
+      "id": "mural-recovery",
+      "name": "Mural Recovery",
+      "range_low": 300,
+      "range_high": 1200,
+      "unit": "per job",
+      "factors": [
+        "Mural size and complexity",
+        "Paint type compatibility",
+        "Artist consultation required",
+        "Documentation scope",
+        "Surface condition"
+      ],
+      "notes": "Recovery success not guaranteed. Some murals may not be fully recoverable depending on graffiti paint type and age."
+    },
+    {
+      "id": "commercial-pressure-washing",
+      "name": "Commercial Pressure Washing",
+      "range_low": 300,
+      "range_high": 2500,
+      "unit": "per session",
+      "factors": [
+        "Square footage",
+        "Surface material",
+        "Soiling level",
+        "Equipment access",
+        "Water source"
+      ],
+      "notes": "Volume discounts available for recurring scheduled service."
+    },
+    {
+      "id": "residential-exterior-cleaning",
+      "name": "Residential Exterior Cleaning",
+      "range_low": 200,
+      "range_high": 800,
+      "unit": "per job",
+      "factors": [
+        "Home size",
+        "Siding material",
+        "Roof type and pitch",
+        "Accessibility"
+      ],
+      "notes": "Soft-wash technique used for roof and delicate siding to prevent damage."
+    },
+    {
+      "id": "driveways-sidewalks-patios",
+      "name": "Driveways, Sidewalks & Patios",
+      "range_low": 100,
+      "range_high": 600,
+      "unit": "per job",
+      "factors": [
+        "Surface area in sq ft",
+        "Surface material",
+        "Oil stain severity",
+        "Moss or mold presence"
+      ],
+      "notes": "Oil stain treatment may require additional chemical application and time."
+    },
+    {
+      "id": "storefront-dumpster-cleanup",
+      "name": "Storefront & Dumpster Pad Cleanup",
+      "range_low": 150,
+      "range_high": 500,
+      "unit": "per visit",
+      "factors": [
+        "Storefront size",
+        "Dumpster pad area",
+        "Biological material present",
+        "Deodorizing required"
+      ],
+      "notes": "Recurring monthly or bi-weekly plans available at reduced per-visit rates."
+    },
+    {
+      "id": "hoa-property-maintenance",
+      "name": "HOA & Property Manager Maintenance",
+      "range_low": 500,
+      "range_high": 3000,
+      "unit": "per scheduled visit",
+      "factors": [
+        "Property size and scope",
+        "Number of buildings",
+        "Frequency of service",
+        "Documentation requirements"
+      ],
+      "notes": "Contracted annual or quarterly service available. Before/after documentation included in all HOA contracts."
+    },
+    {
+      "id": "anti-graffiti-coating",
+      "name": "Anti-Graffiti Coating & Prevention",
+      "range_low": 250,
+      "range_high": 1500,
+      "unit": "per job",
+      "factors": [
+        "Surface area",
+        "Coating type (sacrificial vs permanent)",
+        "Surface preparation required",
+        "Number of coats"
+      ],
+      "notes": "Sacrificial coatings require reapplication after each removal. Permanent coatings have higher upfront cost but lower long-term cost."
+    }
+  ],
+  "sponsorship": {
+    "note": "Sponsorship funds are used to cover the cost of cleaning for qualifying small businesses, murals, and community spaces. Sponsor pricing covers Preeway's cost of labor, materials, and equipment — not a markup.",
+    "tiers": [
+      {
+        "id": "sponsor-block",
+        "name": "Sponsor a Block",
+        "range_low": 500,
+        "range_high": 1500
+      },
+      {
+        "id": "sponsor-storefront",
+        "name": "Sponsor a Storefront",
+        "range_low": 150,
+        "range_high": 400
+      },
+      {
+        "id": "sponsor-mural-recovery",
+        "name": "Sponsor a Mural Recovery",
+        "range_low": 300,
+        "range_high": 800
+      },
+      {
+        "id": "sponsor-supplies",
+        "name": "Sponsor Supplies & Equipment",
+        "range_low": 250,
+        "range_high": 2000
+      },
+      {
+        "id": "sponsor-workforce",
+        "name": "Sponsor Youth & Local Workforce Training",
+        "range_low": 500,
+        "range_high": 5000
+      }
+    ]
+  }
+}

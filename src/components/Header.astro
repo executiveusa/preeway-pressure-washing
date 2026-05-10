@@ -1,0 +1,138 @@
+---
+import LanguageToggle from './LanguageToggle.astro';
+import { getLangFromUrl, getTranslations } from '../i18n/index';
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang);
+const basePath = lang === 'es' ? '/es' : '';
+---
+
+<header
+  id="site-header"
+  class="fixed top-0 left-0 right-0 z-50 bg-dark/95 backdrop-blur-sm border-b border-surface-2 transition-all duration-200"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a
+        href={basePath + '/'}
+        class="flex items-center gap-3 group"
+        aria-label="Preeway Pressure Washing — Home"
+      >
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 relative flex items-center justify-center">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M4 28 L16 4 L28 28" stroke="#c4963c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 20 L24 20" stroke="#c4963c" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="22" cy="24" r="3" fill="#5a7a52"/>
+              <path d="M22 24 L28 24" stroke="#5a7a52" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="font-display italic text-gold text-xl font-bold tracking-wide group-hover:text-gold-light transition-colors">
+            PREEWAY
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-6" aria-label="Primary navigation">
+        <a href={`${basePath}/#services`} class="nav-link text-muted hover:text-text font-body text-sm transition-colors">
+          {t.nav.services}
+        </a>
+        <a href={`${basePath}/#purpose`} class="nav-link text-muted hover:text-text font-body text-sm transition-colors">
+          {t.nav.about}
+        </a>
+        <a href={`${basePath}/#sponsor`} class="nav-link text-muted hover:text-text font-body text-sm transition-colors">
+          {t.nav.sponsor}
+        </a>
+        <a href={`${basePath}/#artists`} class="nav-link text-muted hover:text-text font-body text-sm transition-colors">
+          {t.nav.artists}
+        </a>
+        <LanguageToggle />
+        <a
+          href={`${basePath}/#quote`}
+          class="bg-gold hover:bg-gold-light text-dark font-body font-bold text-sm px-4 py-2 rounded transition-colors"
+        >
+          {t.nav.quote}
+        </a>
+      </nav>
+
+      <!-- Mobile: lang toggle + hamburger -->
+      <div class="flex md:hidden items-center gap-3">
+        <LanguageToggle />
+        <button
+          id="mobile-menu-btn"
+          class="text-muted hover:text-text p-2 rounded transition-colors"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg id="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+          <svg id="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="hidden" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden border-t border-surface-2 bg-dark/98"
+    aria-label="Mobile navigation"
+  >
+    <nav class="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
+      <a href={`${basePath}/#services`} class="mobile-nav-link text-muted hover:text-text font-body py-3 border-b border-surface transition-colors">
+        {t.nav.services}
+      </a>
+      <a href={`${basePath}/#purpose`} class="mobile-nav-link text-muted hover:text-text font-body py-3 border-b border-surface transition-colors">
+        {t.nav.about}
+      </a>
+      <a href={`${basePath}/#sponsor`} class="mobile-nav-link text-muted hover:text-text font-body py-3 border-b border-surface transition-colors">
+        {t.nav.sponsor}
+      </a>
+      <a href={`${basePath}/#artists`} class="mobile-nav-link text-muted hover:text-text font-body py-3 border-b border-surface transition-colors">
+        {t.nav.artists}
+      </a>
+      <a
+        href={`${basePath}/#quote`}
+        class="mobile-nav-link mt-4 bg-gold hover:bg-gold-light text-dark font-bold font-body text-center py-3 rounded transition-colors"
+      >
+        {t.nav.quote}
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const hamburger = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  function toggleMenu() {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    hamburger?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
+    btn?.setAttribute('aria-expanded', String(!isOpen));
+  }
+
+  btn?.addEventListener('click', toggleMenu);
+
+  // Close menu when a link is clicked
+  document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      hamburger?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+      btn?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

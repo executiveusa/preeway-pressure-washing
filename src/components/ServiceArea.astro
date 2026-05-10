@@ -1,0 +1,45 @@
+---
+import { getLangFromUrl, getTranslations } from '../i18n/index';
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang);
+---
+
+<section id="service-area" class="py-24 bg-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <p class="font-mono text-gold text-xs tracking-widest uppercase mb-4">Where We Work</p>
+      <h2 class="font-display italic text-3xl sm:text-4xl lg:text-5xl text-text mb-6">
+        {t.area.heading}
+      </h2>
+      <p class="font-body text-muted text-lg max-w-2xl mx-auto">
+        {t.area.sub}
+      </p>
+    </div>
+
+    <!-- I-5 corridor visual -->
+    <div class="relative mb-12">
+      <div class="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-gold/0 via-gold/20 to-gold/0 -translate-x-1/2 hidden lg:block" aria-hidden="true"></div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+        {t.area.cities.map((city) => (
+          <div class="group flex items-center gap-2 px-4 py-3 bg-surface border border-surface-2 rounded hover:border-gold/40 hover:bg-surface-2 transition-all duration-200 cursor-default">
+            <div class="w-1.5 h-1.5 bg-accent-green rounded-full flex-shrink-0 group-hover:bg-gold transition-colors"></div>
+            <span class="font-body text-muted text-sm group-hover:text-text transition-colors truncate">{city}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Coverage note -->
+    <p class="text-center font-body text-muted text-sm">
+      {t.area.coverage_note}
+    </p>
+
+    <!-- Corridor label -->
+    <div class="mt-10 flex items-center justify-center gap-4">
+      <div class="h-px w-24 bg-gradient-to-r from-transparent to-gold/30" aria-hidden="true"></div>
+      <span class="font-mono text-muted text-xs tracking-widest uppercase">I-5 Corridor · King &amp; Pierce Counties</span>
+      <div class="h-px w-24 bg-gradient-to-l from-transparent to-gold/30" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>

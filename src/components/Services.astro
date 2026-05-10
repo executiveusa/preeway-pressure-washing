@@ -1,0 +1,78 @@
+---
+import { getLangFromUrl, getTranslations } from '../i18n/index';
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang);
+
+const serviceIcons = [
+  // Graffiti Removal
+  `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 17 L10 3 L17 17"/><path d="M5.5 12 L14.5 12"/><circle cx="15" cy="15" r="2" fill="#c4963c" stroke="none"/></svg>`,
+  // Mural Recovery
+  `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="2" y="2" width="16" height="16" rx="1"/><path d="M6 12 L8 8 L11 13 L13 10 L15 12"/></svg>`,
+  // Commercial Pressure Washing
+  `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M3 4 L17 4 M3 4 L3 16 L17 16 L17 4"/><path d="M7 8 L13 8 M7 11 L11 11"/></svg>`,
+  // Residential
+  `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M2 10 L10 3 L18 10"/><path d="M4 10 L4 17 L16 17 L16 10"/><rect x="8" y="12" width="4" height="5"/></svg>`,
+  // Driveways
+  `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 17 L8 3 M12 3 L16 17"/><path d="M6.5 10 L13.5 10"/><path d="M5.5 13.5 L14.5 13.5"/></svg>`,
+  // Storefront
+  `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="2" y="7" width="16" height="11" rx="1"/><path d="M2 7 Q10 2 18 7"/><rect x="8" y="12" width="4" height="6"/></svg>`,
+  // HOA
+  `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M10 2 L18 7 L18 18 L2 18 L2 7 Z"/><circle cx="10" cy="11" r="3"/></svg>`,
+  // Anti-Graffiti Coating
+  `<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M5 10 Q10 4 15 10 Q10 16 5 10 Z"/><circle cx="10" cy="10" r="2" fill="#c4963c" stroke="none"/></svg>`,
+];
+---
+
+<section id="services" class="py-24 bg-surface">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section header -->
+    <div class="text-center mb-16">
+      <p class="font-mono text-gold text-xs tracking-widest uppercase mb-4">Our Services</p>
+      <h2 class="font-display italic text-3xl sm:text-4xl lg:text-5xl text-text mb-6">
+        {t.services.heading}
+      </h2>
+      <p class="font-body text-muted text-lg max-w-2xl mx-auto">
+        {t.services.sub}
+      </p>
+    </div>
+
+    <!-- Services grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {t.services.list.map((service, i) => (
+        <article class="group p-6 bg-dark border border-surface-2 rounded-lg hover:border-gold/30 transition-all duration-300 hover:bg-dark/80 flex flex-col">
+          <!-- Icon + label -->
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 flex items-center justify-center text-gold">
+              <Fragment set:html={serviceIcons[i]} />
+            </div>
+            <div class="w-2 h-2 rounded-full bg-gold flex-shrink-0"></div>
+          </div>
+
+          <!-- Service name -->
+          <h3 class="font-mono text-text text-sm font-medium tracking-wide mb-3 group-hover:text-gold transition-colors uppercase">
+            {service.name}
+          </h3>
+
+          <!-- Description -->
+          <p class="font-body text-muted text-sm leading-relaxed flex-1">
+            {service.desc}
+          </p>
+        </article>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-12">
+      <a
+        href="#quote"
+        class="inline-flex items-center gap-2 bg-gold hover:bg-gold-light text-dark font-body font-bold text-sm px-8 py-4 rounded transition-all duration-200 hover:shadow-lg hover:shadow-gold/20"
+      >
+        Get a quote for any service
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 8 L13 8 M9 4 L13 8 L9 12"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

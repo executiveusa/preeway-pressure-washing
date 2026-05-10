@@ -1,0 +1,98 @@
+---
+import { getLangFromUrl, getTranslations } from '../i18n/index';
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang);
+---
+
+<section id="faq" class="py-24 bg-dark">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <p class="font-mono text-gold text-xs tracking-widest uppercase mb-4">Common Questions</p>
+      <h2 class="font-display italic text-3xl sm:text-4xl lg:text-5xl text-text mb-6">
+        {t.faq.heading}
+      </h2>
+      <p class="font-body text-muted text-lg max-w-2xl mx-auto">
+        {t.faq.sub}
+      </p>
+    </div>
+
+    <div class="space-y-3" role="list">
+      {t.faq.items.map((item, i) => (
+        <div
+          class="faq-item border border-surface-2 rounded-lg overflow-hidden hover:border-gold/20 transition-colors"
+          role="listitem"
+        >
+          <button
+            class="faq-trigger w-full flex items-center justify-between gap-4 px-6 py-5 text-left bg-surface hover:bg-surface-2 transition-colors"
+            aria-expanded="false"
+            aria-controls={`faq-answer-${i}`}
+            id={`faq-q-${i}`}
+          >
+            <span class="flex items-center gap-4">
+              <span class="font-mono text-gold/40 text-xs flex-shrink-0">{String(i + 1).padStart(2, '0')}</span>
+              <span class="font-body text-text text-base">{item.q}</span>
+            </span>
+            <svg
+              class="faq-icon flex-shrink-0 text-muted transition-transform duration-300"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <polyline points="6,9 12,15 18,9"/>
+            </svg>
+          </button>
+          <div
+            id={`faq-answer-${i}`}
+            class="faq-answer overflow-hidden max-h-0 transition-all duration-300"
+            role="region"
+            aria-labelledby={`faq-q-${i}`}
+          >
+            <div class="px-6 pb-6 pt-2">
+              <div class="pl-8 border-l border-gold/20">
+                <p class="font-body text-muted text-sm leading-relaxed">{item.a}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.faq-trigger').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      const answerId = btn.getAttribute('aria-controls') ?? '';
+      const answer = document.getElementById(answerId);
+      const icon = btn.querySelector<SVGElement>('.faq-icon');
+
+      // Close all others
+      document.querySelectorAll<HTMLButtonElement>('.faq-trigger').forEach((other) => {
+        if (other === btn) return;
+        other.setAttribute('aria-expanded', 'false');
+        const otherId = other.getAttribute('aria-controls') ?? '';
+        const otherAnswer = document.getElementById(otherId);
+        const otherIcon = other.querySelector<SVGElement>('.faq-icon');
+        if (otherAnswer) otherAnswer.style.maxHeight = '0px';
+        if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
+      });
+
+      if (isOpen) {
+        btn.setAttribute('aria-expanded', 'false');
+        if (answer) answer.style.maxHeight = '0px';
+        if (icon) icon.style.transform = 'rotate(0deg)';
+      } else {
+        btn.setAttribute('aria-expanded', 'true');
+        if (answer) answer.style.maxHeight = answer.scrollHeight + 'px';
+        if (icon) icon.style.transform = 'rotate(180deg)';
+      }
+    });
+  });
+</script>

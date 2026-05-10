@@ -1,0 +1,101 @@
+---
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import PainPoints from '../components/PainPoints.astro';
+import Services from '../components/Services.astro';
+import SocialPurpose from '../components/SocialPurpose.astro';
+import ArtistPartner from '../components/ArtistPartner.astro';
+import SponsorCleanup from '../components/SponsorCleanup.astro';
+import ServiceArea from '../components/ServiceArea.astro';
+import PreewayScout from '../components/PreewayScout.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import ImpactDashboard from '../components/ImpactDashboard.astro';
+import FAQ from '../components/FAQ.astro';
+import Footer from '../components/Footer.astro';
+import JsonLd from '../components/JsonLd.astro';
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Preeway Pressure Washing SPC — Professional graffiti removal and pressure washing for Tacoma, Seattle, King County, and Pierce County. Social-purpose exterior restoration serving the I-5 corridor." />
+    <meta name="keywords" content="graffiti removal Tacoma, pressure washing Seattle, mural recovery, storefront cleaning, HOA pressure washing, Pierce County exterior cleaning, King County graffiti removal" />
+    <meta property="og:title" content="Preeway Pressure Washing — I-5 Corridor Graffiti Removal & Exterior Cleaning" />
+    <meta property="og:description" content="Fast, professional graffiti removal and pressure washing with a community mission. Serving Seattle, Tacoma, and the full I-5 corridor." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://preeway.com" />
+    <link rel="canonical" href="https://preeway.com" />
+    <link rel="alternate" hreflang="es" href="https://preeway.com/es" />
+    <title>Preeway Pressure Washing — Graffiti Removal & Exterior Cleaning | Tacoma & Seattle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,700&family=DM+Mono:wght@300;400;500&family=Lato:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <JsonLd />
+  </head>
+  <body class="bg-dark text-text font-body antialiased">
+    <Header />
+    <main>
+      <Hero />
+      <PainPoints />
+      <Services />
+      <SocialPurpose />
+      <ArtistPartner />
+      <SponsorCleanup />
+      <ServiceArea />
+      <PreewayScout />
+      <QuoteForm />
+      <ImpactDashboard />
+      <FAQ />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0a1108;
+    color: #f5f0e8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a1108;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #243a24;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c4963c;
+  }
+
+  /* Focus styles */
+  :focus-visible {
+    outline: 2px solid #c4963c;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Ensure header offset for anchor links */
+  [id] {
+    scroll-margin-top: 80px;
+  }
+</style>

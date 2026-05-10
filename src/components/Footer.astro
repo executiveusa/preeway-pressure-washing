@@ -1,0 +1,109 @@
+---
+import { getLangFromUrl, getTranslations } from '../i18n/index';
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang);
+const basePath = lang === 'es' ? '/es' : '';
+---
+
+<footer class="bg-dark border-t border-surface-2 pt-16 pb-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+      <!-- Brand column -->
+      <div class="lg:col-span-1">
+        <a href={basePath + '/'} class="inline-flex items-center gap-2 mb-6 group" aria-label="Preeway Home">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 28 L16 4 L28 28" stroke="#c4963c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 20 L24 20" stroke="#c4963c" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="22" cy="24" r="3" fill="#5a7a52"/>
+            <path d="M22 24 L28 24" stroke="#5a7a52" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span class="font-display italic text-gold text-lg font-bold group-hover:text-gold-light transition-colors">PREEWAY</span>
+        </a>
+        <p class="font-body text-muted text-sm leading-relaxed mb-6">{t.footer.tagline}</p>
+        <div class="flex items-center gap-2 px-3 py-2 bg-surface border border-surface-2 rounded inline-flex">
+          <div class="w-2 h-2 bg-accent-green rounded-full"></div>
+          <span class="font-mono text-muted text-xs tracking-wide">Washington SPC</span>
+        </div>
+      </div>
+
+      <!-- Services column -->
+      <div>
+        <p class="font-mono text-muted/60 text-xs tracking-widest uppercase mb-5">{t.footer.services_heading}</p>
+        <ul class="space-y-3">
+          {[
+            'Graffiti Removal',
+            'Mural Recovery',
+            'Commercial Pressure Washing',
+            'HOA & Property Management',
+            'Anti-Graffiti Coating',
+          ].map((svc) => (
+            <li>
+              <a href={`${basePath}/#services`} class="font-body text-muted hover:text-text text-sm transition-colors">
+                {svc}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Cities column -->
+      <div>
+        <p class="font-mono text-muted/60 text-xs tracking-widest uppercase mb-5">{t.footer.cities_heading}</p>
+        <ul class="space-y-3">
+          {['Seattle', 'Tacoma', 'Bellevue', 'Kirkland', 'Redmond', 'Gig Harbor', 'University Place'].map((city) => (
+            <li>
+              <a href={`${basePath}/#service-area`} class="font-body text-muted hover:text-text text-sm transition-colors">
+                {city}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Company column -->
+      <div>
+        <p class="font-mono text-muted/60 text-xs tracking-widest uppercase mb-5">{t.footer.company_heading}</p>
+        <ul class="space-y-3">
+          <li>
+            <a href={`${basePath}/#quote`} class="font-body text-muted hover:text-text text-sm transition-colors">
+              {t.footer.links.quote}
+            </a>
+          </li>
+          <li>
+            <a href={`${basePath}/#sponsor`} class="font-body text-muted hover:text-text text-sm transition-colors">
+              {t.footer.links.sponsor}
+            </a>
+          </li>
+          <li>
+            <a href={`${basePath}/#artists`} class="font-body text-muted hover:text-text text-sm transition-colors">
+              {t.footer.links.artist}
+            </a>
+          </li>
+          <li>
+            <a href={`${basePath}/#purpose`} class="font-body text-muted hover:text-text text-sm transition-colors">
+              {t.footer.links.about}
+            </a>
+          </li>
+          <li class="pt-2 border-t border-surface-2">
+            <a href="/llms.txt" class="font-mono text-muted/60 hover:text-gold text-xs tracking-wide transition-colors">
+              {t.footer.links.llms}
+            </a>
+          </li>
+          <li>
+            <a href="/service-profile.json" class="font-mono text-muted/60 hover:text-gold text-xs tracking-wide transition-colors">
+              {t.footer.links.service_profile}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-surface-2 pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <p class="font-body text-muted/60 text-xs">{t.footer.copyright}</p>
+      <p class="font-mono text-muted/40 text-xs">{t.footer.spc_notice}</p>
+    </div>
+  </div>
+</footer>

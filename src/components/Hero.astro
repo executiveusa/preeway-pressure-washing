@@ -1,0 +1,76 @@
+---
+import { getLangFromUrl, getTranslations } from '../i18n/index';
+
+const lang = getLangFromUrl(Astro.url);
+const t = getTranslations(lang);
+const basePath = lang === 'es' ? '/es' : '';
+---
+
+<section
+  id="hero"
+  class="relative min-h-screen flex items-center justify-center overflow-hidden"
+  style="background: radial-gradient(ellipse at 20% 80%, rgba(90,122,82,0.15) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(196,150,60,0.08) 0%, transparent 60%), linear-gradient(180deg, #0a1108 0%, #1a2a1a 100%);"
+>
+  <!-- Concrete texture overlay -->
+  <div
+    class="absolute inset-0 opacity-5 pointer-events-none"
+    style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E\")", backgroundSize: "200px 200px" }}
+    aria-hidden="true"
+  ></div>
+
+  <!-- Grid accent lines -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div class="absolute top-1/3 left-0 right-0 h-px bg-accent-green/10"></div>
+    <div class="absolute top-2/3 left-0 right-0 h-px bg-gold/5"></div>
+    <div class="absolute left-1/4 top-0 bottom-0 w-px bg-accent-green/5"></div>
+    <div class="absolute left-3/4 top-0 bottom-0 w-px bg-gold/5"></div>
+  </div>
+
+  <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
+    <!-- SPC Badge -->
+    <div class="inline-flex items-center gap-2 mb-8 px-4 py-2 border border-gold/30 rounded-full bg-gold/5">
+      <div class="w-2 h-2 bg-gold rounded-full animate-pulse"></div>
+      <span class="font-mono text-gold text-xs tracking-widest uppercase">
+        {t.hero.badge}
+      </span>
+    </div>
+
+    <!-- Headline -->
+    <h1 class="font-display italic text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-gold leading-tight mb-8">
+      {t.hero.headline}
+    </h1>
+
+    <!-- Subheading -->
+    <p class="font-body text-text/80 text-lg sm:text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed mb-12">
+      {t.hero.sub}
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a
+        href={`${basePath}/#quote`}
+        class="w-full sm:w-auto bg-gold hover:bg-gold-light text-dark font-body font-bold text-base px-8 py-4 rounded transition-all duration-200 hover:shadow-lg hover:shadow-gold/20 hover:-translate-y-0.5"
+      >
+        {t.hero.cta_quote}
+      </a>
+      <a
+        href={`${basePath}/#sponsor`}
+        class="w-full sm:w-auto border border-gold/60 hover:border-gold text-gold hover:text-gold-light font-body font-bold text-base px-8 py-4 rounded transition-all duration-200 hover:-translate-y-0.5"
+      >
+        {t.hero.cta_sponsor}
+      </a>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="mt-20 flex justify-center">
+      <a href={`${basePath}/#pain-points`} class="text-muted hover:text-gold transition-colors" aria-label="Scroll to learn more">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="animate-bounce" aria-hidden="true">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Bottom fade -->
+  <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-dark to-transparent pointer-events-none" aria-hidden="true"></div>
+</section>
