@@ -1,9 +1,9 @@
 import { defineConfig } from 'astro/config';
-import cloudflare from '@astrojs/cloudflare';
+import vercel from '@astrojs/vercel';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  adapter: cloudflare(),
+  adapter: vercel(),
   integrations: [tailwind()],
   output: 'server',
   i18n: {

@@ -5,3 +5,14 @@ dist/
 !.env.example
 .DS_Store
 *.local
+
+# Vercel
+.vercel/
+
+# Playwright
+playwright-report/
+test-results/
+
+# Logs
+*.log
+npm-debug.log*
