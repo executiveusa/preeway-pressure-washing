@@ -1,8 +1,12 @@
 ---
 import { getLangFromUrl, getTranslations } from '../i18n/index';
+import { getPrimaryImageForSection, getAlt, type SupportedLang } from '../lib/images';
 
 const lang = getLangFromUrl(Astro.url);
 const t = getTranslations(lang);
+
+const sponsorImg = getPrimaryImageForSection('sponsor');
+const sponsorAlt = sponsorImg ? getAlt(sponsorImg, lang as SupportedLang) : '';
 ---
 
 <section id="sponsor" class="py-24 bg-surface">
@@ -16,6 +20,25 @@ const t = getTranslations(lang);
         {t.sponsor.sub}
       </p>
     </div>
+
+    {sponsorImg && (
+      <div class="mb-12 rounded-lg overflow-hidden border border-surface-2 max-w-3xl mx-auto">
+        <img
+          src={sponsorImg.path}
+          alt={sponsorAlt}
+          width={sponsorImg.width}
+          height={sponsorImg.height}
+          loading={sponsorImg.loading}
+          decoding="async"
+          class="w-full object-cover"
+          style="max-height: 280px; object-position: center 50%;"
+        />
+        <div class="px-4 py-2 bg-dark flex items-center gap-2">
+          <div class="w-2 h-2 bg-gold rounded-full"></div>
+          <span class="font-mono text-muted text-xs tracking-widest uppercase">{sponsorImg.title[lang as SupportedLang] ?? sponsorImg.title.en}</span>
+        </div>
+      </div>
+    )}
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
       {t.sponsor.tiers.map((tier, i) => (

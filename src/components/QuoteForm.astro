@@ -1,12 +1,38 @@
 ---
 import { getLangFromUrl, getTranslations } from '../i18n/index';
+import { getPrimaryImageForSection, getAlt, getCaption, type SupportedLang } from '../lib/images';
 
 const lang = getLangFromUrl(Astro.url);
 const t = getTranslations(lang);
+
+const quoteImg = getPrimaryImageForSection('quote-flow');
+const quoteAlt = quoteImg ? getAlt(quoteImg, lang as SupportedLang) : '';
+const quoteCaption = quoteImg ? getCaption(quoteImg, lang as SupportedLang) : '';
 ---
 
 <section id="quote" class="py-24 bg-dark">
-  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    {quoteImg && (
+      <div class="mb-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div class="rounded-lg overflow-hidden border border-surface-2">
+          <img
+            src={quoteImg.path}
+            alt={quoteAlt}
+            width={quoteImg.width}
+            height={quoteImg.height}
+            loading={quoteImg.loading}
+            decoding="async"
+            class="w-full object-cover"
+            style="max-height: 360px; object-position: center 20%;"
+          />
+        </div>
+        <div>
+          <p class="font-mono text-gold text-xs tracking-widest uppercase mb-3">How It Works</p>
+          <p class="font-body text-text/80 text-lg leading-relaxed italic mb-2">{quoteCaption}</p>
+          <p class="font-body text-muted text-sm">No commitment required. We review every request before sending a quote.</p>
+        </div>
+      </div>
+    )}
     <div class="text-center mb-12">
       <p class="font-mono text-gold text-xs tracking-widest uppercase mb-4">Get Started</p>
       <h2 class="font-display italic text-3xl sm:text-4xl lg:text-5xl text-text mb-6">

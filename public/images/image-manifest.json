@@ -1,0 +1,425 @@
+{
+  "version": "1.0.0",
+  "tenant": "preeway-pressure-washing",
+  "updated": "2026-05-12",
+  "images": [
+    {
+      "id": "01_hero_graffiti_removal_seattle",
+      "filename": "01_hero_graffiti_removal_seattle.jpg",
+      "path": "/images/01_hero_graffiti_removal_seattle.jpg",
+      "section": "hero",
+      "placement": "homepage hero background",
+      "route": "/",
+      "priority": "critical",
+      "loading": "eager",
+      "aspectRatio": "16:9",
+      "width": 1920,
+      "height": 1080,
+      "alt": {
+        "en": "Preeway Pressure Washing technician removing graffiti from a brick storefront on Ballard Avenue in Seattle, Washington, with the Space Needle visible in the background",
+        "es": "Técnico de Preeway Pressure Washing eliminando grafiti de una fachada de ladrillo en Ballard Avenue, Seattle, con la Space Needle visible al fondo"
+      },
+      "title": {
+        "en": "Graffiti Removal — Ballard Ave, Seattle",
+        "es": "Eliminación de Grafiti — Ballard Ave, Seattle"
+      },
+      "caption": {
+        "en": "Graffiti removal in progress on Ballard Ave, Seattle. Preeway technician at work restoring a local coffee roaster's storefront.",
+        "es": "Eliminación de grafiti en progreso en Ballard Ave, Seattle. Técnico de Preeway restaurando la fachada de una cafetería local."
+      },
+      "location": {
+        "city": "Seattle",
+        "neighborhood": "Ballard",
+        "county": "King County",
+        "state": "WA",
+        "landmark": "Space Needle visible"
+      },
+      "seoTags": [
+        "graffiti removal Seattle",
+        "pressure washing Ballard",
+        "storefront restoration King County",
+        "Preeway Pressure Washing SPC",
+        "commercial graffiti removal Washington"
+      ],
+      "content": {
+        "depicts": ["graffiti removal", "storefront restoration", "Seattle skyline", "pressure washing equipment", "Preeway branded uniform"],
+        "mood": "active, professional, civic"
+      }
+    },
+    {
+      "id": "02_pain_vandalized_storefront_seattle",
+      "filename": "02_pain_vandalized_storefront_seattle.jpg",
+      "path": "/images/02_pain_vandalized_storefront_seattle.jpg",
+      "section": "pain",
+      "placement": "pain point section — vandalized storefront",
+      "route": "/",
+      "priority": "high",
+      "loading": "lazy",
+      "aspectRatio": "3:2",
+      "width": 1200,
+      "height": 800,
+      "alt": {
+        "en": "Vandalized storefront on Ballard Avenue NW in Seattle — a coffee roaster's facade covered in large graffiti tags on a rainy night",
+        "es": "Fachada vandal izada en Ballard Avenue NW, Seattle — una tostadora de café cubierta de grafitis en una noche lluviosa"
+      },
+      "title": {
+        "en": "Vandalized Storefront — Ballard Ave NW, Seattle (Before)",
+        "es": "Fachada Vandalizada — Ballard Ave NW, Seattle (Antes)"
+      },
+      "caption": {
+        "en": "A local coffee roaster on Ballard Ave NW hit with extensive graffiti. This is what graffiti does to storefront trust overnight.",
+        "es": "Una cafetería local en Ballard Ave NW cubierta de grafitis. Así afecta el grafiti a la confianza en los negocios de la noche a la mañana."
+      },
+      "location": {
+        "city": "Seattle",
+        "neighborhood": "Ballard",
+        "county": "King County",
+        "state": "WA",
+        "street": "Ballard Ave NW"
+      },
+      "seoTags": [
+        "graffiti vandalism Seattle storefront",
+        "vandalized business Ballard",
+        "graffiti damage commercial property",
+        "Seattle graffiti before removal",
+        "storefront graffiti Washington"
+      ],
+      "content": {
+        "depicts": ["vandalized storefront", "graffiti tags", "rainy Seattle street", "commercial blight"],
+        "mood": "stark, urgent, before-state"
+      }
+    },
+    {
+      "id": "03_service_graffiti_closeup",
+      "filename": "03_service_graffiti_closeup.jpg",
+      "path": "/images/03_service_graffiti_closeup.jpg",
+      "section": "services",
+      "placement": "graffiti removal service card",
+      "route": "/services/graffiti-removal",
+      "priority": "high",
+      "loading": "lazy",
+      "aspectRatio": "1:1",
+      "width": 800,
+      "height": 800,
+      "alt": {
+        "en": "Preeway Pressure Washing before-and-after driveway cleaning result showing dramatic concrete restoration with the Preeway logo",
+        "es": "Resultado antes y después de la limpieza de entrada de Preeway Pressure Washing, mostrando la restauración dramática del concreto con el logo de Preeway"
+      },
+      "title": {
+        "en": "Graffiti Removal Results — Preeway SPC",
+        "es": "Resultados de Eliminación de Grafiti — Preeway SPC"
+      },
+      "caption": {
+        "en": "Branded before/after result from a Preeway concrete restoration job. The left panel shows heavy staining; the right shows a clean, restored surface.",
+        "es": "Resultado antes/después de un trabajo de restauración de concreto de Preeway. El panel izquierdo muestra manchas severas; el derecho muestra una superficie limpia y restaurada."
+      },
+      "location": {
+        "city": "Tacoma",
+        "neighborhood": "Residential",
+        "county": "Pierce County",
+        "state": "WA"
+      },
+      "seoTags": [
+        "graffiti removal before after",
+        "concrete restoration Tacoma",
+        "Preeway results pressure washing",
+        "driveway cleaning Pierce County",
+        "exterior restoration Washington"
+      ],
+      "content": {
+        "depicts": ["before/after split", "concrete cleaning", "Preeway logo", "residential driveway", "garage"],
+        "mood": "proof, transformation, branded"
+      }
+    },
+    {
+      "id": "04_service_mural_recovery",
+      "filename": "04_service_mural_recovery.jpg",
+      "path": "/images/04_service_mural_recovery.jpg",
+      "section": "services",
+      "placement": "mural recovery service card",
+      "route": "/services/mural-recovery",
+      "priority": "high",
+      "loading": "lazy",
+      "aspectRatio": "4:5",
+      "width": 800,
+      "height": 1000,
+      "alt": {
+        "en": "Artist carefully restoring a mural that was tagged with graffiti, with a sign reading Mural Recovery In Progress",
+        "es": "Artista restaurando cuidadosamente un mural que fue vandal izado con grafitis, con un cartel que dice Mural Recovery In Progress"
+      },
+      "title": {
+        "en": "Mural Recovery In Progress",
+        "es": "Recuperación de Mural en Progreso"
+      },
+      "caption": {
+        "en": "A Preeway-partnered artist restores a tagged mural. Recovery, not erasure — protecting community art through careful documentation and restoration.",
+        "es": "Un artista asociado a Preeway restaura un mural vandalizado. Recuperación, no borrado — protegiendo el arte comunitario mediante documentación y restauración cuidadosas."
+      },
+      "location": {
+        "city": "Seattle",
+        "county": "King County",
+        "state": "WA"
+      },
+      "seoTags": [
+        "mural recovery Seattle",
+        "mural restoration graffiti",
+        "protect community murals Washington",
+        "mural repair King County",
+        "graffiti mural recovery service"
+      ],
+      "content": {
+        "depicts": ["mural restoration", "artist at work", "graffiti removal from mural", "sign: Mural Recovery In Progress", "vibrant mural artwork"],
+        "mood": "restorative, civic, careful"
+      }
+    },
+    {
+      "id": "05_service_pressure_wash_before_after",
+      "filename": "05_service_pressure_wash_before_after.jpg",
+      "path": "/images/05_service_pressure_wash_before_after.jpg",
+      "section": "services",
+      "placement": "pressure washing service card — before/after",
+      "route": "/services/pressure-washing",
+      "priority": "high",
+      "loading": "lazy",
+      "aspectRatio": "1:2",
+      "width": 600,
+      "height": 1200,
+      "alt": {
+        "en": "Side-by-side before and after view of a residential driveway in the Pacific Northwest — left shows moss and staining, right shows clean restored concrete",
+        "es": "Vista lado a lado antes y después de una entrada residencial en el Noroeste del Pacífico — izquierda con musgo y manchas, derecha con concreto limpio y restaurado"
+      },
+      "title": {
+        "en": "Driveway Pressure Washing — Before & After",
+        "es": "Lavado a Presión de Entrada — Antes y Después"
+      },
+      "caption": {
+        "en": "Pacific Northwest moss and organic staining removed from a residential concrete driveway. Left: before. Right: after.",
+        "es": "Musgo y manchas orgánicas del Noroeste del Pacífico eliminados de una entrada de concreto residencial. Izquierda: antes. Derecha: después."
+      },
+      "location": {
+        "city": "Tacoma",
+        "county": "Pierce County",
+        "state": "WA",
+        "surface": "concrete driveway"
+      },
+      "seoTags": [
+        "driveway pressure washing before after",
+        "concrete cleaning Pacific Northwest",
+        "moss removal driveway Tacoma",
+        "residential pressure washing Pierce County",
+        "driveway restoration Washington"
+      ],
+      "content": {
+        "depicts": ["split before/after", "residential driveway", "concrete", "moss staining", "clean restored surface", "garage", "Pacific Northwest home"],
+        "mood": "transformation, proof, residential"
+      }
+    },
+    {
+      "id": "06_social_community_cleanup",
+      "filename": "06_social_community_cleanup.jpg",
+      "path": "/images/06_social_community_cleanup.jpg",
+      "section": "social-purpose",
+      "placement": "social purpose section — community impact",
+      "route": "/",
+      "priority": "medium",
+      "loading": "lazy",
+      "aspectRatio": "1:1",
+      "width": 900,
+      "height": 900,
+      "alt": {
+        "en": "Preeway crew pressure washing a Seattle sidewalk near the Space Needle with a sign reading Clean Streets Strong Community",
+        "es": "Equipo de Preeway lavando a presión una acera de Seattle cerca de la Space Needle con un cartel que dice Clean Streets Strong Community"
+      },
+      "title": {
+        "en": "Community Cleanup — Seattle I-5 Corridor",
+        "es": "Limpieza Comunitaria — Corredor I-5 de Seattle"
+      },
+      "caption": {
+        "en": "Preeway crew executing a sponsored block cleanup near the Space Needle corridor. Clean Streets. Strong Community.",
+        "es": "Equipo de Preeway ejecutando una limpieza de bloque patrocinada cerca del corredor de la Space Needle. Calles Limpias. Comunidad Fuerte."
+      },
+      "location": {
+        "city": "Seattle",
+        "county": "King County",
+        "state": "WA",
+        "landmark": "Space Needle visible"
+      },
+      "seoTags": [
+        "community cleanup Seattle",
+        "sponsored block cleanup Washington",
+        "civic pressure washing program",
+        "neighborhood restoration Seattle",
+        "Preeway SPC community mission"
+      ],
+      "content": {
+        "depicts": ["crew cleanup", "pressure washing sidewalk", "Space Needle", "Seattle street", "sign: Clean Streets Strong Community", "team of 4 workers"],
+        "mood": "civic, active, community-driven"
+      }
+    },
+    {
+      "id": "07_artist_mural_creation",
+      "filename": "07_artist_mural_creation.jpg",
+      "path": "/images/07_artist_mural_creation.jpg",
+      "section": "artist-partnership",
+      "placement": "artist partner section — mural creation",
+      "route": "/artists",
+      "priority": "medium",
+      "loading": "lazy",
+      "aspectRatio": "4:5",
+      "width": 800,
+      "height": 1000,
+      "alt": {
+        "en": "A mural artist painting a large vibrant floral portrait mural on a Seattle building with the Space Needle visible in the background on a rainy day",
+        "es": "Una artista muralista pintando un gran mural de retrato floral vibrante en un edificio de Seattle con la Space Needle visible al fondo en un día lluvioso"
+      },
+      "title": {
+        "en": "Mural Creation — Seattle Artist Partner",
+        "es": "Creación de Mural — Artista Asociado de Seattle"
+      },
+      "caption": {
+        "en": "A Preeway-partnered mural artist at work in Seattle. Murals are community assets we protect, not surfaces we erase.",
+        "es": "Una artista muralista asociada a Preeway trabajando en Seattle. Los murales son activos comunitarios que protegemos, no superficies que borramos."
+      },
+      "location": {
+        "city": "Seattle",
+        "county": "King County",
+        "state": "WA",
+        "landmark": "Space Needle visible"
+      },
+      "seoTags": [
+        "Seattle mural artist",
+        "mural partnership Washington",
+        "community art Seattle",
+        "mural protection program",
+        "Preeway artist network"
+      ],
+      "content": {
+        "depicts": ["female artist painting", "floral portrait mural", "Space Needle background", "Seattle skyline", "rainy day", "professional muralist"],
+        "mood": "vibrant, artistic, community"
+      }
+    },
+    {
+      "id": "08_sponsor_neighborhood_transformation",
+      "filename": "08_sponsor_neighborhood_transformation.jpg",
+      "path": "/images/08_sponsor_neighborhood_transformation.jpg",
+      "section": "sponsor",
+      "placement": "sponsor section — transformation result",
+      "route": "/sponsor",
+      "priority": "medium",
+      "loading": "lazy",
+      "aspectRatio": "2:3",
+      "width": 600,
+      "height": 900,
+      "alt": {
+        "en": "Clean concrete retaining wall alongside a wet sidewalk in a Pacific Northwest neighborhood, showing the result of professional exterior cleaning",
+        "es": "Muro de contención de concreto limpio junto a una acera mojada en un vecindario del Noroeste del Pacífico, mostrando el resultado de la limpieza exterior profesional"
+      },
+      "title": {
+        "en": "Neighborhood Transformation — Sponsored Cleanup Result",
+        "es": "Transformación del Vecindario — Resultado de Limpieza Patrocinada"
+      },
+      "caption": {
+        "en": "A clean corridor in the Pacific Northwest — the visible result of a sponsored community cleanup. One block at a time.",
+        "es": "Un corredor limpio en el Noroeste del Pacífico — el resultado visible de una limpieza comunitaria patrocinada. Una cuadra a la vez."
+      },
+      "location": {
+        "city": "Seattle",
+        "county": "King County",
+        "state": "WA"
+      },
+      "seoTags": [
+        "sponsor community cleanup Seattle",
+        "neighborhood improvement Washington",
+        "sponsored pressure washing program",
+        "concrete wall restoration Pacific Northwest",
+        "blight removal sponsorship"
+      ],
+      "content": {
+        "depicts": ["clean concrete wall", "wet sidewalk", "green plantings", "iron fence", "Pacific Northwest corridor"],
+        "mood": "clean, restored, hopeful"
+      }
+    },
+    {
+      "id": "09_quote_flow_customer_interaction",
+      "filename": "09_quote_flow_customer_interaction.jpg",
+      "path": "/images/09_quote_flow_customer_interaction.jpg",
+      "section": "quote-flow",
+      "placement": "quote process section — customer consultation",
+      "route": "/",
+      "priority": "medium",
+      "loading": "lazy",
+      "aspectRatio": "3:4",
+      "width": 750,
+      "height": 1000,
+      "alt": {
+        "en": "A Preeway technician showing before and after photos on a tablet to a homeowner standing outside her Pacific Northwest home",
+        "es": "Un técnico de Preeway mostrando fotos de antes y después en una tableta a una propietaria de vivienda afuera de su hogar en el Noroeste del Pacífico"
+      },
+      "title": {
+        "en": "Quote Consultation — Preeway Field Review",
+        "es": "Consulta de Cotización — Revisión de Campo Preeway"
+      },
+      "caption": {
+        "en": "Every Preeway job starts with a field review and photo documentation. We show you the before — and what the after will look like.",
+        "es": "Cada trabajo de Preeway comienza con una revisión de campo y documentación fotográfica. Le mostramos el antes — y cómo se verá el después."
+      },
+      "location": {
+        "city": "Tacoma",
+        "county": "Pierce County",
+        "state": "WA"
+      },
+      "seoTags": [
+        "pressure washing quote Tacoma",
+        "exterior cleaning consultation Washington",
+        "home pressure washing estimate",
+        "Preeway field review",
+        "residential cleaning quote Pacific Northwest"
+      ],
+      "content": {
+        "depicts": ["technician and homeowner", "tablet with before/after photos", "residential exterior", "Pacific Northwest home", "professional consultation"],
+        "mood": "professional, trust-building, residential"
+      }
+    },
+    {
+      "id": "10_gallery_proof_collage",
+      "filename": "10_gallery_proof_collage.jpg",
+      "path": "/images/10_gallery_proof_collage.jpg",
+      "section": "gallery",
+      "placement": "gallery / proof section",
+      "route": "/gallery",
+      "priority": "low",
+      "loading": "lazy",
+      "aspectRatio": "4:5",
+      "width": 800,
+      "height": 1000,
+      "alt": {
+        "en": "A mural artist and Preeway technician working together on a large floral portrait mural on a Seattle building",
+        "es": "Una artista muralista y un técnico de Preeway trabajando juntos en un gran mural de retrato floral en un edificio de Seattle"
+      },
+      "title": {
+        "en": "Gallery — Mural Partnership in Action",
+        "es": "Galería — Asociación de Murales en Acción"
+      },
+      "caption": {
+        "en": "Preeway and local artists working side by side — the mural recovery and protection program in action.",
+        "es": "Preeway y artistas locales trabajando juntos — el programa de recuperación y protección de murales en acción."
+      },
+      "location": {
+        "city": "Seattle",
+        "county": "King County",
+        "state": "WA"
+      },
+      "seoTags": [
+        "mural artist Seattle gallery",
+        "Preeway mural partnership",
+        "community art restoration",
+        "mural protection Seattle",
+        "exterior art conservation Washington"
+      ],
+      "content": {
+        "depicts": ["mural artist and technician", "collaborative work", "floral portrait mural", "urban Seattle setting"],
+        "mood": "collaborative, artistic, vibrant"
+      }
+    }
+  ]
+}

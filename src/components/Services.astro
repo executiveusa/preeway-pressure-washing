@@ -1,8 +1,21 @@
 ---
 import { getLangFromUrl, getTranslations } from '../i18n/index';
+import { getImageById, getAlt, type SupportedLang } from '../lib/images';
 
 const lang = getLangFromUrl(Astro.url);
 const t = getTranslations(lang);
+
+// Pull service images from manifest (index matches service list order)
+const serviceImages = [
+  getImageById('03_service_graffiti_closeup'),      // Graffiti Removal
+  getImageById('04_service_mural_recovery'),         // Mural Recovery
+  getImageById('05_service_pressure_wash_before_after'), // Commercial Pressure Washing
+  null,                                              // Residential (no dedicated image)
+  getImageById('05_service_pressure_wash_before_after'), // Driveways (shares before/after)
+  getImageById('01_hero_graffiti_removal_seattle'),  // Storefront
+  getImageById('06_social_community_cleanup'),       // HOA
+  null,                                              // Anti-Graffiti Coating
+];
 
 const serviceIcons = [
   // Graffiti Removal
@@ -39,27 +52,49 @@ const serviceIcons = [
 
     <!-- Services grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      {t.services.list.map((service, i) => (
-        <article class="group p-6 bg-dark border border-surface-2 rounded-lg hover:border-gold/30 transition-all duration-300 hover:bg-dark/80 flex flex-col">
-          <!-- Icon + label -->
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-8 h-8 flex items-center justify-center text-gold">
-              <Fragment set:html={serviceIcons[i]} />
+      {t.services.list.map((service, i) => {
+        const img = serviceImages[i] ?? null;
+        const imgAlt = img ? getAlt(img, lang as SupportedLang) : '';
+        return (
+          <article class="group bg-dark border border-surface-2 rounded-lg hover:border-gold/30 transition-all duration-300 hover:bg-dark/80 flex flex-col overflow-hidden">
+            <!-- Service image (when available) -->
+            {img && (
+              <div class="w-full overflow-hidden" style="height: 140px;">
+                <img
+                  src={img.path}
+                  alt={imgAlt}
+                  width={img.width}
+                  height={img.height}
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  style="object-position: center 30%;"
+                />
+              </div>
+            )}
+
+            <div class="p-5 flex flex-col flex-1">
+              <!-- Icon + label -->
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-7 h-7 flex items-center justify-center text-gold">
+                  <Fragment set:html={serviceIcons[i]} />
+                </div>
+                <div class="w-2 h-2 rounded-full bg-gold flex-shrink-0"></div>
+              </div>
+
+              <!-- Service name -->
+              <h3 class="font-mono text-text text-sm font-medium tracking-wide mb-2 group-hover:text-gold transition-colors uppercase">
+                {service.name}
+              </h3>
+
+              <!-- Description -->
+              <p class="font-body text-muted text-sm leading-relaxed flex-1">
+                {service.desc}
+              </p>
             </div>
-            <div class="w-2 h-2 rounded-full bg-gold flex-shrink-0"></div>
-          </div>
-
-          <!-- Service name -->
-          <h3 class="font-mono text-text text-sm font-medium tracking-wide mb-3 group-hover:text-gold transition-colors uppercase">
-            {service.name}
-          </h3>
-
-          <!-- Description -->
-          <p class="font-body text-muted text-sm leading-relaxed flex-1">
-            {service.desc}
-          </p>
-        </article>
-      ))}
+          </article>
+        );
+      })}
     </div>
 
     <!-- CTA -->

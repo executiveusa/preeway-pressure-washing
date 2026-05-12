@@ -1,9 +1,16 @@
 ---
 import { getLangFromUrl, getTranslations } from '../i18n/index';
+import { getPrimaryImageForSection, getImageById, getAlt, getCaption, type SupportedLang } from '../lib/images';
 
 const lang = getLangFromUrl(Astro.url);
 const t = getTranslations(lang);
 const basePath = lang === 'es' ? '/es' : '';
+
+const artistImg = getPrimaryImageForSection('artist-partnership');
+const muralRecoveryImg = getImageById('04_service_mural_recovery');
+const primaryImg = artistImg ?? muralRecoveryImg;
+const primaryAlt = primaryImg ? getAlt(primaryImg, lang as SupportedLang) : '';
+const primaryCaption = primaryImg ? getCaption(primaryImg, lang as SupportedLang) : '';
 ---
 
 <section id="artists" class="py-24 bg-surface relative overflow-hidden">
@@ -16,50 +23,36 @@ const basePath = lang === 'es' ? '/es' : '';
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      <!-- Left: Visual representation of mural -->
+      <!-- Left: Mural artist photograph -->
       <div class="order-2 lg:order-1">
-        <div class="relative">
-          <!-- Mural simulation with CSS art -->
-          <div
-            class="w-full aspect-square max-w-md mx-auto rounded-lg overflow-hidden relative"
-            style="background: linear-gradient(135deg, #1a2a1a 0%, #0a1a0a 100%);"
-            role="img"
-            aria-label="Abstract representation of mural art"
-          >
-            <!-- Mural-like abstract art using CSS/SVG -->
-            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="w-full h-full" aria-hidden="true">
-              <!-- Background layers -->
-              <rect width="400" height="400" fill="#0a1a0a"/>
-              <!-- Abstract mural shapes -->
-              <ellipse cx="200" cy="300" rx="180" ry="60" fill="#1a2a1a"/>
-              <!-- Large sweeping forms -->
-              <path d="M50 350 Q100 200 200 150 Q300 100 380 200 L400 400 L0 400 Z" fill="#243a24" opacity="0.8"/>
-              <!-- Figure suggestion -->
-              <path d="M160 280 Q180 150 200 120 Q220 150 240 280" stroke="#5a7a52" stroke-width="3" fill="none" opacity="0.6"/>
-              <circle cx="200" cy="100" r="25" fill="#5a7a52" opacity="0.5"/>
-              <!-- Gold accent strokes (representing mural detail) -->
-              <path d="M80 200 Q150 160 220 180 Q290 200 340 170" stroke="#c4963c" stroke-width="2" fill="none" opacity="0.4"/>
-              <path d="M60 250 Q160 210 260 230 Q330 245 380 220" stroke="#c4963c" stroke-width="1.5" fill="none" opacity="0.3"/>
-              <!-- Community symbols -->
-              <path d="M120 320 L140 290 L160 320 L120 320 Z" fill="#c4963c" opacity="0.6"/>
-              <path d="M260 310 L280 280 L300 310 L260 310 Z" fill="#5a7a52" opacity="0.5"/>
-              <!-- "PROTECTED" watermark-style text -->
-              <text x="200" y="370" text-anchor="middle" font-family="monospace" font-size="10" fill="#5a7a52" opacity="0.4" letter-spacing="6">PROTECTED</text>
-              <!-- Subtle grid overlay -->
-              <line x1="0" y1="133" x2="400" y2="133" stroke="#5a7a52" stroke-width="0.5" opacity="0.15"/>
-              <line x1="0" y1="266" x2="400" y2="266" stroke="#5a7a52" stroke-width="0.5" opacity="0.15"/>
-              <line x1="133" y1="0" x2="133" y2="400" stroke="#5a7a52" stroke-width="0.5" opacity="0.15"/>
-              <line x1="266" y1="0" x2="266" y2="400" stroke="#5a7a52" stroke-width="0.5" opacity="0.15"/>
-            </svg>
-
-            <!-- Overlay label -->
-            <div class="absolute bottom-4 left-4 right-4">
-              <div class="flex items-center gap-2 bg-dark/80 backdrop-blur-sm px-3 py-2 rounded">
-                <div class="w-2 h-2 bg-accent-green rounded-full"></div>
-                <span class="font-mono text-accent-green text-xs tracking-widest uppercase">Mural Recovery Network</span>
+        <div class="relative w-full max-w-md mx-auto rounded-lg overflow-hidden border border-surface-2">
+          {primaryImg ? (
+            <>
+              <img
+                src={primaryImg.path}
+                alt={primaryAlt}
+                width={primaryImg.width}
+                height={primaryImg.height}
+                loading={primaryImg.loading}
+                decoding="async"
+                class="w-full object-cover"
+                style="max-height: 480px; object-position: center 20%;"
+              />
+              <div class="absolute bottom-0 left-0 right-0 px-4 py-3 bg-gradient-to-t from-dark/90 to-transparent">
+                <div class="flex items-center gap-2">
+                  <div class="w-2 h-2 bg-accent-green rounded-full"></div>
+                  <span class="font-mono text-accent-green text-xs tracking-widest uppercase">Mural Recovery Network</span>
+                </div>
+                {primaryCaption && (
+                  <p class="font-body text-muted text-xs mt-1 leading-snug">{primaryCaption}</p>
+                )}
               </div>
+            </>
+          ) : (
+            <div class="w-full aspect-square bg-surface flex items-center justify-center">
+              <span class="font-mono text-muted text-xs">Image pending upload</span>
             </div>
-          </div>
+          )}
         </div>
       </div>
 
