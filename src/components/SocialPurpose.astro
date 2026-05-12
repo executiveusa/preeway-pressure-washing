@@ -1,8 +1,12 @@
 ---
 import { getLangFromUrl, getTranslations } from '../i18n/index';
+import { getPrimaryImageForSection, getAlt, type SupportedLang } from '../lib/images';
 
 const lang = getLangFromUrl(Astro.url);
 const t = getTranslations(lang);
+
+const socialImg = getPrimaryImageForSection('social-purpose');
+const socialAlt = socialImg ? getAlt(socialImg, lang as SupportedLang) : '';
 ---
 
 <section id="purpose" class="py-24 bg-dark">
@@ -31,8 +35,26 @@ const t = getTranslations(lang);
         </div>
       </div>
 
-      <!-- Right: Impact areas -->
+      <!-- Right: Community image + impact areas -->
       <div>
+        {socialImg && (
+          <div class="mb-10 rounded-lg overflow-hidden border border-surface-2">
+            <img
+              src={socialImg.path}
+              alt={socialAlt}
+              width={socialImg.width}
+              height={socialImg.height}
+              loading={socialImg.loading}
+              decoding="async"
+              class="w-full object-cover"
+              style="max-height: 320px; object-position: center 30%;"
+            />
+            <div class="px-4 py-2 bg-surface flex items-center gap-2">
+              <div class="w-2 h-2 bg-accent-green rounded-full"></div>
+              <span class="font-mono text-muted text-xs tracking-widest uppercase">{socialImg.title[lang as SupportedLang] ?? socialImg.title.en}</span>
+            </div>
+          </div>
+        )}
         <h3 class="font-display italic text-2xl text-gold mb-6">What Our SPC Status Means in Practice</h3>
         <ul class="space-y-4" role="list">
           {t.purpose.impact_areas.map((area) => (

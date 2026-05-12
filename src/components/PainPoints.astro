@@ -1,8 +1,12 @@
 ---
 import { getLangFromUrl, getTranslations } from '../i18n/index';
+import { getPrimaryImageForSection, getAlt, type SupportedLang } from '../lib/images';
 
 const lang = getLangFromUrl(Astro.url);
 const t = getTranslations(lang);
+
+const painImg = getPrimaryImageForSection('pain');
+const painAlt = painImg ? getAlt(painImg, lang as SupportedLang) : '';
 ---
 
 <section id="pain-points" class="py-24 bg-dark">
@@ -17,6 +21,26 @@ const t = getTranslations(lang);
         {t.pain.sub}
       </p>
     </div>
+
+    <!-- Vandalized storefront evidence image -->
+    {painImg && (
+      <div class="mb-12 rounded-lg overflow-hidden border border-surface-2 max-w-2xl mx-auto">
+        <img
+          src={painImg.path}
+          alt={painAlt}
+          width={painImg.width}
+          height={painImg.height}
+          loading={painImg.loading}
+          decoding="async"
+          class="w-full object-cover"
+          style="max-height: 300px; object-position: center 40%;"
+        />
+        <div class="px-4 py-2 bg-surface flex items-center justify-between gap-2">
+          <span class="font-mono text-muted text-xs tracking-widest uppercase">{painImg.location.neighborhood} · {painImg.location.city}, {painImg.location.state}</span>
+          <span class="font-mono text-gold/60 text-xs">before</span>
+        </div>
+      </div>
+    )}
 
     <!-- Pain points grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
